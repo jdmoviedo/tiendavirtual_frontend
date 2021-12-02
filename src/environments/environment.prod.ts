@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  UrlApi: "https://tiendavirtualbackend.herokuapp.com/api"
 };
