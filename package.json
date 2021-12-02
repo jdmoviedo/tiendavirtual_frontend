@@ -10,9 +10,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "preinstall":"npm install @angular/cli @angular-devkit/build-angular @angular/compiler-cli typescript --save-prod",
+    "heroku-postbuild": "ng build -prod"
   },
-  "heroku-postbuild": "ng build -prod",
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~13.0.3",
