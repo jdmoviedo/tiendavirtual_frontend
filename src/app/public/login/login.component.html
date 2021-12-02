@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div
+      class="col-md-6 col-md-offset-6"
+      style="margin-top: 40px"
+      id="panelIngresar"
+    >
+      <div class="text-center" style="color: white">
+        <h2>
+          <small>BIENVENIDO A</small>
+          <p><strong>TIENDA VIRTUAL</strong></p>
+        </h2>
+        <div style="margin-top: 40px">
+          <a [routerLink]="['/login']">
+            <img src="../../../assets/img/logo.png" style="width: 60%" />
+          </a>
+        </div>
+        <form>
+          <div class="form-group" style="margin-top: 70px !important">
+            <a class="tooltips" style="text-decoration: none">
+              <input
+                type="email"
+                class="form-text form-control requerido"
+                title="Ingresa tu Correo"
+                minlength="6"
+                maxlength="50"
+                ng-keydown="l.pulsaenter($event)"
+                placeholder="Correo"
+                name="correo"
+                [(ngModel)]="usuario.correo"
+              />
+              <span class="spanValidacion"></span>
+            </a>
+          </div>
+          <div class="form-group" style="margin-top: 70px !important">
+            <a class="tooltips" style="text-decoration: none">
+              <input
+                type="password"
+                class="form-text form-control requerido"
+                title="Ingresa tu Contraseña"
+                minlength="8"
+                maxlength="20"
+                ng-keydown="l.pulsaenter($event)"
+                placeholder="Contraseña"
+                [(ngModel)]="usuario.password"
+                name="password"
+                pattern="^[a-zA-Z0-9ñÑ]+$"
+                data-pattern="Solo se permiten numeros y letras"
+                data-pattern-replace="[^a-zA-Z0-9ñÑ]"
+                oninput="limitecaracteres(this);"
+              />
+              <span class="spanValidacion"></span>
+            </a>
+          </div>
+        </form>
+      </div>
+      <div style="background-color: #fff; margin-top: 100px">
+        <div class="botoniniciar">
+          <button
+            type="button"
+            class="btn btniniciarsesion"
+            id="btnLoginIngresar"
+            (click)="signIn()"
+          >
+            INGRESAR
+          </button>
+        </div>
+        <p class="text-center" style="padding-top: 40px">
+          <a style="color: black">
+            <h6>Olvidaste tu contraseña?</h6>
+          </a>
+        </p>
+        <p class="text-center" style="padding-bottom: 40px">
+          No tienes una cuenta?
+          <a style="color: black">Crear una cuenta</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

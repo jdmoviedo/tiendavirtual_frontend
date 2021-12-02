@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <div id="panelCategorias">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <i class="fas fa-shopping-cart bg-blue"></i>
+            <h3 style="line-height: 1.5">Categorias</h3>
+          </div>
+        </div>
+        <div class="col-lg-4" style="text-align: right">
+          <i
+            class="ik ik-plus fa-3x"
+            style="margin-right: 10px; cursor: pointer"
+            (click)="openModal(ModalRegistro, 1)"
+          ></i>
+          <i
+            class="ik ik-refresh-ccw fa-3x"
+            style="margin-right: 10px; cursor: pointer"
+            (click)="listarCategorias()"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <table
+              width="100%"
+              id="dttableCategorias"
+              class="table"
+              style="margin-left: 0px; width: 100%"
+            ></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #ModalRegistro let-c="close" let-d="dismiss" let-modal>
+    <form
+      (ngSubmit)="edit ? editarCategoria() : crearCategoria()"
+      #form="ngForm"
+    >
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+          {{ tituloModal }}
+        </h4>
+      </div>
+      <div class="modal-body">
+        <!-- Area -->
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="descripcion">Descripcion</label>
+            <a class="tooltips">
+              <input
+                id="descripcion"
+                name="descripcion"
+                type="text"
+                class="form-control requerido maxlength-input"
+                title="Descripcion"
+                minlength="1"
+                maxlength="9"
+                placeholder="Descripcion"
+                oninput="limitecaracteres(this);"
+                [(ngModel)]="categoria.descripcion"
+              />
+              <span class="spanValidacion"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="submit"
+          class="btn btn-outline-success"
+          *ngIf="buttonModal != ''"
+        >
+          {{ buttonModal }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="modal.close()"
+        >
+          Cerrar
+        </button>
+      </div>
+    </form>
+  </ng-template>
+</div>

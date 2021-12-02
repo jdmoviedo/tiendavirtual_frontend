@@ -1,0 +1,157 @@
+<div class="container-fluid">
+  <div id="panelEgresos">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <i class="fas fa-hand-holding-usd bg-blue"></i>
+            <h3 style="line-height: 1.5">Ingresos</h3>
+          </div>
+        </div>
+        <div class="col-lg-4" style="text-align: right">
+          <i
+            class="ik ik-plus fa-3x"
+            style="margin-right: 10px; cursor: pointer"
+            (click)="openModal(ModalRegistro, 1)"
+          ></i>
+          <i
+            class="ik ik-refresh-ccw fa-3x"
+            style="margin-right: 10px; cursor: pointer"
+            (click)="listarIngresos()"
+          ></i>
+          <i
+            class="far fa-file-excel fa-3x"
+            id="btnExcel"
+            style="cursor: pointer"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <table
+              width="100%"
+              id="dttableIngresos"
+              class="table"
+              style="margin-left: 0px; width: 100%"
+            ></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #ModalRegistro let-c="close" let-d="dismiss" let-modal>
+    <form (ngSubmit)="edit ? editarIngreso() : crearIngreso()" #form="ngForm">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+          {{ tituloModal }}
+        </h4>
+      </div>
+      <div class="modal-body">
+        <!-- Area -->
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <a class="tooltips">
+              <label for="selectCategorias">Categoria</label>
+              <select
+                class="form-control requerido"
+                id="categoria"
+                [(ngModel)]="categoria._id"
+                title="Categorias"
+                style="width: 100%"
+                (ngModelChange)="listarProductosxCateogoria()"
+                name="categoria"
+              >
+                <option
+                  *ngFor="let categoria of listaCategorias"
+                  [value]="categoria._id"
+                  [disabled]="categoria.estado == 1 ? null : true"
+                >
+                  {{ categoria.descripcion }}
+                </option>
+              </select>
+              <span class="spanValidacion" style="left: 50% !important"></span>
+            </a>
+          </div>
+          <div class="col-md-12 form-group">
+            <a class="tooltips">
+              <label for="selectProductos">Producto</label>
+              <select
+                class="form-control requerido"
+                id="producto"
+                title="Producto"
+                style="width: 100%"
+                [(ngModel)]="ingreso.producto"
+                name="producto"
+              >
+                <option
+                  *ngFor="let producto of listaProductos"
+                  [value]="producto._id"
+                  [disabled]="producto.estado == 1 ? null : true"
+                >
+                  {{ producto.descripcion }}
+                </option>
+              </select>
+              <span class="spanValidacion" style="left: 50% !important"></span>
+            </a>
+          </div>
+          <div class="form-group col-md-12">
+            <label for="valor_venta">Valor Venta</label>
+            <a class="tooltips">
+              <input
+                id="valor_venta"
+                name="valor_venta"
+                type="text"
+                class="form-control requerido maxlength-input"
+                title="Valor Venta"
+                minlength="1"
+                maxlength="9"
+                placeholder="Valor Venta"
+                oninput="limitecaracteres(this);"
+                [(ngModel)]="ingreso.valor_venta"
+              />
+              <span class="spanValidacion"></span>
+            </a>
+          </div>
+          <div class="form-group col-md-12">
+            <label for="cantidad">Cantidad</label>
+            <a class="tooltips">
+              <input
+                id="cantidad"
+                name="cantidad"
+                type="text"
+                class="form-control requerido maxlength-input"
+                title="Cantidad"
+                minlength="1"
+                maxlength="2"
+                placeholder="Cantidad"
+                oninput="limitecaracteres(this);"
+                [(ngModel)]="ingreso.cantidad"
+              />
+              <span class="spanValidacion"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="submit"
+          class="btn btn-outline-success"
+          *ngIf="buttonModal != ''"
+        >
+          {{ buttonModal }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="modal.close()"
+        >
+          Cerrar
+        </button>
+      </div>
+    </form>
+  </ng-template>
+</div>

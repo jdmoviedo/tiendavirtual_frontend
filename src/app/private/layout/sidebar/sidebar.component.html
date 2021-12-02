@@ -1,0 +1,40 @@
+<div class="sidebar-content">
+  <div class="nav-container">
+    <nav id="main-menu-navigation" class="navigation-main">
+      <div class="nav-item has-sub text-capitalize">
+        <br />
+        <a
+          [class.active]="isActive('/admin/productos') || isActive('/admin/ingresos') || isActive('/admin/egresos') || isActive('/admin/categorias')"
+          style="cursor: pointer"
+          ><i class="fas fa-store-alt nav-icon"></i><span>Tienda</span></a
+        >
+        <div class="submenu-content">
+          <a
+            [routerLink]="['/admin/productos']"
+            routerLinkActive="active"
+            class="menu-item"
+            ><i class="fas fa-box-open nav-icon"></i>Productos</a
+          >
+          <a
+            [routerLink]="['/admin/ingresos']"
+            routerLinkActive="active"
+            class="menu-item"
+            ><i class="fas fa-hand-holding-usd"></i>Ingresos</a
+          >
+          <a
+            [routerLink]="['/admin/egresos']"
+            routerLinkActive="active"
+            class="menu-item"
+            ><i class="fas fa-shopping-cart"></i>Egresos</a
+          >
+          <a
+            [routerLink]="['/admin/categorias']"
+            routerLinkActive="active"
+            class="menu-item"
+            ><i class="fas fa-boxes"></i>Categorias</a
+          >
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

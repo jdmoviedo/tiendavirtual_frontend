@@ -1,0 +1,136 @@
+<div class="container-fluid">
+  <div id="panelInventario">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <i class="fas fa-shopping-cart bg-blue"></i>
+            <h3 style="line-height: 1.5">Usuarios</h3>
+          </div>
+        </div>
+        <div class="col-lg-4" style="text-align: right">
+          <i
+            class="ik ik-plus fa-3x"
+            style="margin-right: 10px; cursor: pointer"
+          ></i>
+          <i
+            class="ik ik-refresh-ccw fa-3x"
+            id="btnActualizar"
+            style="margin-right: 10px; cursor: pointer"
+          ></i>
+          <i
+            class="far fa-file-excel fa-3x"
+            id="btnExcel"
+            style="cursor: pointer"
+          ></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <table width="100%" id="dttableUsuarios" class="table" style="margin-left: 0px;width: 100%;">
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="ModalRegistro"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel"></h5>
+        </div>
+        <div class="modal-body">
+          <form id="frmRegistro">
+            <input type="hidden" />
+            <!-- Area -->
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <a class="tooltips">
+                  <label for="selectCategorias">Categoria</label>
+                  <select
+                    class="form-control requerido"
+                    id="selectCategorias"
+                    title="Categorias"
+                    style="width: 100%"
+                  >
+                    <option></option>
+                  </select>
+                  <span
+                    class="spanValidacion"
+                    style="left: 50% !important"
+                  ></span>
+                </a>
+              </div>
+              <div class="col-md-12 form-group">
+                <a class="tooltips">
+                  <label for="selectProductos">Producto</label>
+                  <select
+                    class="form-control requerido"
+                    id="selectProductos"
+                    title="Producto"
+                    style="width: 100%"
+                  >
+                    <option></option>
+                  </select>
+                  <span
+                    class="spanValidacion"
+                    style="left: 50% !important"
+                  ></span>
+                </a>
+              </div>
+              <div class="form-group col-md-12">
+                <label for="valor_compra">Valor Compra</label>
+                <a class="tooltips">
+                  <input
+                    type="text"
+                    class="form-control requerido maxlength-input"
+                    title="Valor Compra"
+                    minlength="1"
+                    maxlength="9"
+                    placeholder="Valor Compra"
+                    oninput="limitecaracteres(this);"
+                  />
+                  <span class="spanValidacion"></span>
+                </a>
+              </div>
+              <div class="form-group col-md-12">
+                <label for="cantidad">Cantidad</label>
+                <a class="tooltips">
+                  <input
+                    type="text"
+                    class="form-control requerido maxlength-input"
+                    title="Cantidad"
+                    minlength="1"
+                    maxlength="2"
+                    placeholder="Cantidad"
+                    oninput="limitecaracteres(this);"
+                  />
+                  <span class="spanValidacion"></span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer" id="footerBtn">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

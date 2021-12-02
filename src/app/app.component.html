@@ -1,0 +1,9 @@
+<input type="hidden" id="modalMostrar" />
+<div class="overlayCargue" style="text-align: center">
+  <ng-lottie
+    class="overlayLottie"
+    [options]="options"
+    (animationCreated)="animationCreated($event)"
+  ></ng-lottie>
+</div>
+<router-outlet></router-outlet>

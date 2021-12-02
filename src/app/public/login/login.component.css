@@ -1,0 +1,17 @@
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0b2944;
+  border-radius: 10px;
+}
+
+h2 p{
+  font-size: 2rem;
+}
+
+.btn{
+  height: 46px;
+}

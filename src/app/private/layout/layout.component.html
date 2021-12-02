@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <app-topbar></app-topbar>
+
+  <div class="page-wrap">
+    <div class="app-sidebar colored">
+      <div class="sidebar-header">
+        <a class="header-brand" href="#">
+          <div class="logo-img">
+            <img src="assets/img/logo.png" class="" />
+          </div>
+        </a>
+        <button type="button" class="nav-toggle">
+          <i
+            data-toggle="expanded"
+            class="ik ik-toggle-right toggle-icon"
+            style="color: #2dce89"
+          ></i>
+        </button>
+      </div>
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>
