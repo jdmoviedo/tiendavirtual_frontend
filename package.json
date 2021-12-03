@@ -53,6 +53,7 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "moment": "^2.29.1",
     "ngx-lottie": "^8.0.1",
+    "path": "^0.12.7",
     "rxjs": "~7.4.0",
     "select2": "^4.1.0-rc.0",
     "sweetalert2": "^11.2.1",
