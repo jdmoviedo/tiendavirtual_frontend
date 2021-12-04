@@ -111,7 +111,6 @@ export class IngresosComponent implements OnInit {
   listarProductosxCateogoria() {
     this._productosService
       .listarProductosxCategoria({
-
         categoria: this.categoria._id,
       })
       .subscribe((data) => {
